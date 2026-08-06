@@ -1,13 +1,22 @@
 {
+<<<<<<< HEAD
   "name": "PixelHouse",
   "short_name": "PixelHouse",
+=======
+  "name": "Pixel House",
+  "short_name": "Pixel House",
+>>>>>>> c0d04e7cf4985fbb1c5fc559fb9b8df7d1520876
   "start_url": "https://designing-world.com/suha-3.2.0/intro.html",
   "display": "standalone",
   "background_color": "#625AFA",
   "theme_color": "#625AFA",
   "categories": ["shop", "ecommerce", "fashion"],
   "orientation": "portrait",
+<<<<<<< HEAD
   "description": "Pixel House Store",
+=======
+  "description": "Pixel House",
+>>>>>>> c0d04e7cf4985fbb1c5fc559fb9b8df7d1520876
   "icons": [{
       "src": "img/icons/icon-72x72.png",
       "type": "image/png",
