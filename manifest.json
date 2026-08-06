@@ -1,13 +1,13 @@
 {
-  "name": "Suha",
-  "short_name": "Suha",
+  "name": "PixelHouse",
+  "short_name": "PixelHouse",
   "start_url": "https://designing-world.com/suha-3.2.0/intro.html",
   "display": "standalone",
   "background_color": "#625AFA",
   "theme_color": "#625AFA",
   "categories": ["shop", "ecommerce", "fashion"],
   "orientation": "portrait",
-  "description": "Suha - Multipurpose Ecommerce Mobile HTML Template",
+  "description": "Pixel House Store",
   "icons": [{
       "src": "img/icons/icon-72x72.png",
       "type": "image/png",
