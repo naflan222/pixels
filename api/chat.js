@@ -12,42 +12,33 @@ export default async function handler(req, res) {
     const { message } = req.body;
 
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    console.log("User message:", message);
 
 
-    if (!apiKey) {
-
-      return res.status(500).json({
-
-        error: "Gemini API key missing"
-
-      });
-
-    }
+    console.log("API KEY EXISTS:", !!process.env.GEMINI_API_KEY);
 
 
 
     const response = await fetch(
 
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
 
       {
 
-        method: "POST",
+        method:"POST",
 
-        headers: {
-
-          "Content-Type": "application/json"
-
+        headers:{
+          "Content-Type":"application/json"
         },
 
-        body: JSON.stringify({
 
-          contents: [
+        body:JSON.stringify({
+
+          contents:[
 
             {
 
-              parts: [
+              parts:[
 
                 {
 
@@ -72,15 +63,16 @@ export default async function handler(req, res) {
     const data = await response.json();
 
 
-    console.log("Gemini Response:", data);
+
+    console.log("Gemini response:", JSON.stringify(data));
 
 
 
-    if (!response.ok) {
+    if(!response.ok){
 
-      return res.status(response.status).json({
+      return res.status(500).json({
 
-        error: data.error?.message || "Gemini error"
+        error:data.error?.message || "Gemini API failed"
 
       });
 
@@ -90,18 +82,16 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
 
-      reply:
-      data.candidates?.[0]?.content?.parts?.[0]?.text 
-      || "No answer returned"
+      reply:data.candidates[0].content.parts[0].text
 
     });
 
 
 
-  } catch(error) {
+  } catch(error){
 
 
-    console.log(error);
+    console.log("SERVER ERROR:", error);
 
 
     return res.status(500).json({
@@ -109,7 +99,6 @@ export default async function handler(req, res) {
       error:error.message
 
     });
-
 
   }
 
